@@ -30,11 +30,10 @@ echo "<br><br>";
 if(isset($_POST["username"], $_POST["password"])) 
     {     
 
-        $name = $_POST["username"]; 
+        $username = $_POST["username"]; 
         $password = $_POST["password"]; 
 
-				$result1 = $connection->query("SELECT username, password FROM users WHERE username = '$_POST[username]' AND password = '$_POST[password]'");
-        #$result1 = $connection->query("SELECT username, password FROM users WHERE username = '$_POST[username]' AND  password = '$_POST[username]'");
+		$result1 = $connection->query("SELECT username, password FROM users WHERE username = '$username' AND password = '$password'");
 
 		if ($result1->num_rows > 0)
      
