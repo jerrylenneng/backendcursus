@@ -1,7 +1,7 @@
 <h1> Oefeningen en eindopdrachten </h1>
 <h3> Terug naar hoofdmenu </h3> <a href="../index.php">Hoofdmenu</a>
 
-<h4> Opdracht Les 1 </h4>
+<h4> Opdracht Les 1  </h4>
 
 <?php
 
