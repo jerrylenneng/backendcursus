@@ -1,6 +1,7 @@
 <html>
 <body>
 
+<h3> Terug naar hoofdmenu </h3> <a href="../../index.php">Hoofdmenu</a>
 
 <h1> Weekopdracht </h1>
 
