@@ -1,10 +1,12 @@
 
 <h1> Oefeningen en eindopdrachten </h1>
-<h3> Terug naar hoofdmenu </h3> <a href="../index.php">Hoofdmenu</a>
+<h3> Terug naar hoofdmenu </h3> <a href="../../index.php">Hoofdmenu</a>
 
 
 
 <h4> Oefeningen Les 3 </h4>
+
+<h5> Oefening 1 </h5>
 
 <?php 
 
@@ -15,158 +17,102 @@ class Dier {
 	private $ogen = "2" ;
 	private $diet = "vegetarier";
 
-
-	public function __construct($diersoort, $kleur) {
+	public function __construct($diersoort, $kleur, $ogen, $aantal_poten, $diet) {
 		$this->diersoort = $diersoort;
 		$this->kleur = $kleur;
+		$this->ogen = $ogen;
+		$this->aantal_poten = $aantal_poten;
+		$this->diet = $diet;
+
 	}
-
-
 
 	public function tonen() {
-		echo "Dit is een {$this->diersoort} dier met {$this->kleur} haar.";
+		echo "Dit is een {$this->diersoort} met {$this->kleur} haar, {$this->ogen} aantal ogen, {$this->aantal_poten} aantal poten en een {$this->diet} dieet";
 	}
 
 }
 
-$dier = new Dier('pescetarian' , 'paars');
+
+
+$dier = new Dier('zoogdier' , 'rood' , 'twee' , '4' , 'carnivorisch');
+$dier->tonen();
+echo "<br>";
+$dier = new Dier('roofdier' , 'rood' , 'vier' , '2' , 'vegetarisch');
+$dier->tonen();
+echo "<br>";
+$dier = new Dier('vlamdier' , 'rood' , 'zes' , '0' , 'omnitarisch');
+$dier->tonen();
+echo "<br>";
+$dier = new Dier('waterbeest' , 'rood' , 'acht' , '6' , 'flexitarisch');
+$dier->tonen();
+echo "<br>";
+$dier = new Dier('vliegbeest' , 'rood' , 'tien' , '8' , 'carnivorisch');
 $dier->tonen();
 
-echo "<br><br>";
+echo "<br>";
 
-class Authentication {
-	
-	private $username;
-	private $password;
-	
-	public function setCredentials($username, $password) {
-		$this->username = $username;
-		$this->password = $password;
-	}
-	
-}
+?>
 
-class Auto {
-    private $type = 'hatchback';
-    private $kleur = 'geen';
-    // In dit geval mogen we alleen de kleur van de auto aanpassen.
-    public function setKleur($kleur) {
-        $this->kleur = $kleur;
-    }
-    public function getKleur() {
-        return $this->kleur;
-    }
-    public function getType() {
-        return $this->type;
-    }
-    public function tonen() {
-        echo 'Deze ' . $this->getType() . ' heeft de kleur ' . $this->getKleur();
-    }
-}
-$auto = new Auto;
-$auto->setKleur('groen');
-$auto->tonen();
+<h5> Oefening 2 & 3 </h5>
 
-echo "<br><br>";
-
-
-
-class Fruit {
-  public $name;
-  public $color;
-  public function __construct($name, $color) {
-    $this->name = $name;
-    $this->color = $color;
-  }
-  public function intro() {
-    echo "The fruit is {$this->name} and the color is {$this->color}.";
-  }
-}
-
-// Strawberry is inherited from Fruit
-class Strawberry extends Fruit {
-  public function message() {
-    echo "Am I a fruit or a berry? ";
-  }
-}
-$strawberry = new Strawberry("Strawberry", "red");
-$strawberry->message();
-$strawberry->intro();
-
-
-
-
-echo "<br><br>";
+<?php 
 
 
 class Dier2 {
-	public $naam;
-	public $soort;
+	public $sPoten = "4";
+	public $sGrootte = "";
+	public $sKleur = "";
 	
-	public function __construct($naam, $soort) {
-		$this->naam = $naam;
-		$this->soort = $soort;
+	public function dierMethode(){
+		return "Het dier " . $this->getSoort( ) . ", die " . $this->getKleur( ) . " van kleur is, " . $this->getActie( ) . "!";
 	}
 	
-	public function dierTonen() {
-		echo "De naam van het dier is {$this->naam} en de soort is {$this->soort}.";
-	}
-}
-
-class Kat extends Dier2 {
-	public function katTonen() {
-		echo "Wat ben ik?" ;
-	}
-}
-
-$langharig = new Kat("Henk", "Noorse Boskat");
-$langharig->katTonen();
-echo "<br>";
-$langharig->dierTonen();
-
-
-
-
-
-
-
-
-
-
-class Tafel {
-    public $aantal_poten = 4;
-    public $vorm = 'rond';
-    public $kleur = 'blauw';
-    public function tonen() {
-        echo "Dit is een {$this->kleur}e {$this->vorm}e tafel met $this->aantal_poten poten.";
+    public function setSoort( $sSoort ){
+        $this->sSoort = $sSoort;
+        return;
     }
-}
-$tafel = new Tafel;
-$tafel->tonen(); // Dit is een blauwe ronde tafel met 4 poten.
-
-echo "<br><br>";
-
-
+    public function getSoort( ){
+        return $this->sSoort;
+    } 
 	
-$dier = new Dier('geel', '2');
 	
-$dier->tonen();
-
-
-class Authentication2 { 
-    private $username;    
-	private $password;    
-
-	public function setCredentials($username, $password) {   
-		$this->username = $username;     
-		$this->password = $password;     
-	}     
+    public function setKleur( $sKleur ){
+        $this->sKleur = $sKleur;
+        return;
+    }
+    public function getKleur( ){
+        return $this->sKleur;
+    } 
+    public function setActie( $sActie ){
+        $this->sActie = $sActie;
+        return;
+    }
+    public function getActie( ){
+        return $this->sActie;
+    } 
 	
-	public function getUsername() {   
-		return $this->username;
+	public function randomActie( ){
+		return "test";
 	}
+	
+	
 }
 
+$oDier = new Dier2;
+$oDier->setSoort( "de vogel" );
+$oDier->setKleur( "wit" );
+$oDier->setActie( "vliegt" );
+echo $oDier->dierMethode( );
+echo "<br>";
+$oDier->setSoort( "de kat" );
+$oDier->setKleur( "zwart" );
+$oDier->setActie( "springt" );
+echo $oDier->dierMethode( );
+echo "<br>";
+$oDier->setSoort( "de vis" );
+$oDier->setKleur( "blauw" );
+$oDier->setActie( "zwemt" );
+echo $oDier->dierMethode( );
 
 
 
@@ -176,4 +122,12 @@ class Authentication2 {
 
 ?>
 
-<h4> Weekopdracht </h4><a href="eindopdrachtLes3.php">Weekopdracht</a>
+
+<h5> Oefening 4, deeloefeningen 1 t/m 5 </h5>
+
+<a href="index.php">Opdrachten</a>
+
+
+<br><br><br><br><br>
+
+
